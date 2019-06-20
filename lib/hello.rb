@@ -1,8 +1,10 @@
+require 'pry'
 def hello_t(array)
   if block_given?
    i = 0
     while i < array.length
      yield array[i]
+     binding.pry
      i = i + 1
 
     end
@@ -11,8 +13,7 @@ def hello_t(array)
   puts "Hey! No block was given!"
   end
 end
-
-hello_t(["Tim", "Tom", "Jim"]) do |name|
+hello_t(["Jim", "Tom", "TiT"]) do |name|
   if name.start_with?("T")
     puts "Hi, #{name}"
   end
